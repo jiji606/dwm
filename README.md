@@ -81,4 +81,4 @@ and (re)compiling the source code.
 
 ### Screnshots
 
-[dwm screenshot](./screenshot.png)
+![dwm screenshot](./screenshot.png)
