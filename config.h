@@ -48,7 +48,8 @@ static const char *tags[] = {
 
 /* fonts */
 static const char *fonts[] = {
-	"monospace:size=10"
+	"Tamzen:size=10",
+	"Siji:size=10"
 };
 static const char dmenufont[] = "monospace:size=10";
 
