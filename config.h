@@ -8,16 +8,29 @@ static const int showbar           = 1;        /* 0 means no bar */
 static const int topbar            = 1;        /* 0 means bottom bar */
 
 /* colors */
-static const char col_gray1[]      = "#222222";
-static const char col_gray2[]      = "#444444";
-static const char col_gray3[]      = "#bbbbbb";
-static const char col_gray4[]      = "#eeeeee";
-static const char col_cyan[]       = "#005577";
+static const char col_jellybean0[]  = "#181818";
+static const char col_jellybean1[]  = "#3b3b3b";
+static const char col_jellybean2[]  = "#6c6c6c";
+static const char col_jellybean3[]  = "#e8e8d3";
+static const char col_jellybean4[]  = "#cf6a4c";
+static const char col_jellybean5[]  = "#db8f78";
+static const char col_jellybean6[]  = "#99ad6a";
+static const char col_jellybean7[]  = "#b2c18f";
+static const char col_jellybean8[]  = "#d8ad4c";
+static const char col_jellybean9[]  = "#e1c178";
+static const char col_jellybean10[] = "#597bc5";
+static const char col_jellybean11[] = "#829cd3";
+static const char col_jellybean12[] = "#a037b0";
+static const char col_jellybean13[] = "#b769c3";
+static const char col_jellybean14[] = "#71b9f8";
+static const char col_jellybean15[] = "#94caf9";
+static const char col_jellybean16[] = "#adadad";
+static const char col_jellybean17[] = "#c1c1c1";
 static const char *colors[][3]     = {
-	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
-	[SchemeUrg]  = { col_gray1, col_cyan,  col_cyan  },
+	/*               fg               bg              border          */
+	[SchemeNorm] = { col_jellybean2,  col_jellybean0, col_jellybean1  },
+	[SchemeSel]  = { col_jellybean17, col_jellybean0, col_jellybean4  },
+	[SchemeUrg]  = { col_jellybean3,  col_jellybean4, col_jellybean11 },
 };
 
 /* tagging */
