@@ -76,6 +76,8 @@ and (re)compiling the source code.
 1. colorstatus
 1. warp
 1. hide vacant tags
+1. unkillable windows
+1. urgent windows border color
 
 ---
 
