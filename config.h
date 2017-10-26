@@ -35,15 +35,15 @@ static const char *colors[][3]      = {
 
 /* tagging */
 static const char *tags[] = {
-	"WEB",
-	"SYS",
-	"DEV",
-	"DOC",
-	"COM",
-	"MISC",
-	"DOTS",
-	"VID",
-	"9"
+	"WEB",  // 0
+	"SYS",  // 1
+	"DEV",  // 2
+	"DOCS", // 3
+	"COMM", // 4
+	"UTIL", // 5
+	"MISC", // 6
+	"VIDS", // 7
+	"DOTS"  // 8
 };
 
 /* fonts */
@@ -59,15 +59,17 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class           instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",          NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",       NULL,       NULL,       1 << 0,       0,           -1 },
-	{ "konsole",       NULL,       NULL,       1 << 1,       0,           -1 },
-	{ "st-256color",   NULL,       NULL,       1 << 1,       0,           -1 },
-	{ "PacketTracer7", NULL,       NULL,       1 << 2,       0,           -1 },
-	{ "Zim",           NULL,       NULL,       1 << 3,       0,           -1 },
-	{ "keepassxc",     NULL,       NULL,       1 << 3,       0,           -1 },
-	{ "Slack",         NULL,       NULL,       1 << 4,       0,           -1 },
-	{ "mpv",           NULL,       NULL,       1 << 7,       0,           -1 },
+	{ "Gimp",           NULL,       NULL,       0,            1,           -1 },
+	{ "systemsettings", NULL,       NULL,       0,            1,           -1 },
+	{ "Firefox",        NULL,       NULL,       1 << 0,       0,           -1 },
+	{ "konsole",        NULL,       NULL,       1 << 1,       0,           -1 },
+	{ "st-256color",    NULL,       NULL,       1 << 1,       0,           -1 },
+	{ "PacketTracer7",  NULL,       NULL,       1 << 2,       0,           -1 },
+	{ "Zim",            NULL,       NULL,       1 << 5,       0,           -1 },
+	{ "keepassxc",      NULL,       NULL,       1 << 5,       0,           -1 },
+	{ "Slack",          NULL,       NULL,       1 << 4,       0,           -1 },
+	{ "mpv",            NULL,       NULL,       1 << 7,       0,           -1 },
+	{ "Zathura",        NULL,       NULL,       1 << 3,       0,           -1 },
 };
 
 /* layout(s) */
