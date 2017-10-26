@@ -31,6 +31,7 @@ static const char *colors[][3]      = {
 	[SchemeNorm] = { col_jellybean2,  col_jellybean0, col_jellybean1  },
 	[SchemeSel]  = { col_jellybean17, col_jellybean0, col_jellybean4  },
 	[SchemeUrg]  = { col_jellybean3,  col_jellybean4, col_jellybean11 },
+	[SchemePerm] = { col_jellybean3,  col_jellybean1, col_jellybean6  },
 };
 
 /* tagging */
@@ -59,18 +60,18 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class           instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",           NULL,       NULL,       0,            1,           -1 },
-	{ "systemsettings", NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",        NULL,       NULL,       1 << 0,       0,           -1 },
-	{ "konsole",        NULL,       NULL,       1 << 1,       0,           -1 },
-	{ "st-256color",    NULL,       NULL,       1 << 1,       0,           -1 },
-	{ "PacketTracer7",  NULL,       NULL,       1 << 2,       0,           -1 },
-	{ "Zim",            NULL,       NULL,       1 << 5,       0,           -1 },
-	{ "keepassxc",      NULL,       NULL,       1 << 5,       0,           -1 },
-	{ "Slack",          NULL,       NULL,       1 << 4,       0,           -1 },
-	{ "mpv",            NULL,       NULL,       1 << 7,       0,           -1 },
-	{ "Zathura",        NULL,       NULL,       1 << 3,       0,           -1 },
+	/* class            instance    title       tags mask     isfloating  ispermanenent   monitor */
+	{ "Gimp",           NULL,       NULL,       0,            1,          0,              -1 },
+	{ "systemsettings", NULL,       NULL,       0,            1,          0,              -1 },
+	{ "Firefox",        NULL,       NULL,       1 << 0,       0,          0,              -1 },
+	{ "konsole",        NULL,       NULL,       1 << 1,       0,          0,              -1 },
+	{ "st-256color",    NULL,       NULL,       1 << 1,       0,          0,              -1 },
+	{ "PacketTracer7",  NULL,       NULL,       1 << 2,       0,          0,              -1 },
+	{ "Zim",            NULL,       NULL,       1 << 5,       0,          0,              -1 },
+	{ "keepassxc",      NULL,       NULL,       1 << 5,       0,          0,              -1 },
+	{ "Slack",          NULL,       NULL,       1 << 4,       0,          0,              -1 },
+	{ "mpv",            NULL,       NULL,       1 << 7,       0,          0,              -1 },
+	{ "Zathura",        NULL,       NULL,       1 << 3,       0,          0,              -1 },
 };
 
 /* layout(s) */
@@ -149,6 +150,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_m,                      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_space,                  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,                  togglefloating, {0} },
+	{ MODKEY,                       XK_u,                      togglepermanent,  {0} },
 	{ MODKEY,                       XK_0,                      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,                      tag,            {.ui = ~0 } },
 	{ MODKEY,                       XK_comma,                  focusmon,       {.i = -1 } },
