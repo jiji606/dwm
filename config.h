@@ -26,7 +26,7 @@ static const char col_jellybean14[] = "#71b9f8";
 static const char col_jellybean15[] = "#94caf9";
 static const char col_jellybean16[] = "#adadad";
 static const char col_jellybean17[] = "#c1c1c1";
-static const char *colors[][3]     = {
+static const char *colors[][3]      = {
 	/*               fg               bg              border          */
 	[SchemeNorm] = { col_jellybean2,  col_jellybean0, col_jellybean1  },
 	[SchemeSel]  = { col_jellybean17, col_jellybean0, col_jellybean4  },
