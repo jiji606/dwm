@@ -53,6 +53,7 @@ static const char *fonts[] = {
 };
 static const char dmenufont[] = "monospace:size=10";
 
+/* rules */
 static const Rule rules[] = {
 	/* xprop(1):
 	 *	WM_CLASS(STRING) = instance, class
@@ -113,6 +114,7 @@ static const char *touchpad[]  = { "/home/jj/Skrypty/touchpadtoggle.sh", NULL };
 #include <X11/XF86keysym.h>
 #include "movestack.c"
 
+/* keybindings */
 static Key keys[] = {
 	/* modifier                     key                        function        argument */
 	{ 0,                            XF86XK_AudioRaiseVolume,   spawn,          {.v = raise_vol} },
