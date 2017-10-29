@@ -65,6 +65,8 @@ static const Rule rules[] = {
 	{ "Gimp",           NULL,       NULL,       0,            1,          0,              -1 },
 	{ "systemsettings", NULL,       NULL,       0,            1,          0,              -1 },
 	{ "XCalc",          NULL,       NULL,       0,            1,          0,              -1 },
+	{ "Steam",          NULL,       NULL,       1 << 6,       1,          0,              -1 },
+	{ "starbound",      NULL,       NULL,       1 << 6,       1,          0,              -1 },
 	{ "Firefox",        NULL,       NULL,       1 << 0,       0,          0,              -1 },
 	{ "konsole",        NULL,       NULL,       1 << 1,       0,          0,              -1 },
 	{ "st-256color",    NULL,       NULL,       1 << 1,       0,          0,              -1 },
