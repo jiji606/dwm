@@ -176,6 +176,7 @@ static void focus(Client *c);
 static void focusin(XEvent *e);
 static void focusmon(const Arg *arg);
 static void focusstack(const Arg *arg);
+static unsigned long getcolormap(const char *color, Window w, unsigned long fallback);
 static int getrootptr(int *x, int *y);
 static long getstate(Window w);
 static int gettextprop(Window w, Atom atom, char *text, unsigned int size);
@@ -248,6 +249,10 @@ static void zoom(const Arg *arg);
 
 /* variables */
 static const char broken[] = "broken";
+static const char *selectbordercolor = "selectbordercolor";
+static const char *normalbordercolor = "normalbordercolor";
+static const char *urgentbordercolor = "urgentbordercolor";
+static const char *unkillbordercolor = "unkillbordercolor";
 static char stext[256];
 static int combo = 0;
 static int screen;
@@ -856,9 +861,9 @@ focus(Client *c)
 		detachstack(c);
 		attachstack(c);
 		grabbuttons(c, 1);
-		XSetWindowBorder(dpy, c->win, scheme[SchemeSel][ColBorder].pixel);
+		XSetWindowBorder(dpy, c->win, getcolormap(selectbordercolor, c->win, scheme[SchemeSel][ColBorder].pixel));
 		if (c->ispermanent)
-			XSetWindowBorder(dpy, c->win, scheme[SchemePerm][ColBorder].pixel);
+			XSetWindowBorder(dpy, c->win, getcolormap(unkillbordercolor, c->win, scheme[SchemePerm][ColBorder].pixel));
 		setfocus(c);
 	} else {
 		XSetInputFocus(dpy, root, RevertToPointerRoot, CurrentTime);
@@ -917,6 +922,25 @@ focusstack(const Arg *arg)
 		focus(c);
 		restack(selmon);
 	}
+}
+
+unsigned long
+getcolormap(const char *color, Window w, unsigned long fallback)
+{
+	if (!w)
+		return fallback;
+
+	XWindowAttributes attr;
+
+	if (!XGetWindowAttributes(dpy, w, &attr))
+		return fallback;
+
+	Colormap cmap = attr.colormap;
+	XColor xcolor;
+
+	if(!XAllocNamedColor(dpy, cmap, color, &xcolor, &xcolor))
+		return fallback;
+	return xcolor.pixel;
 }
 
 Atom
@@ -1122,9 +1146,9 @@ manage(Window w, XWindowAttributes *wa)
 
 	wc.border_width = c->bw;
 	XConfigureWindow(dpy, w, CWBorderWidth, &wc);
-	XSetWindowBorder(dpy, w, scheme[SchemeNorm][ColBorder].pixel);
+	XSetWindowBorder(dpy, w, getcolormap(normalbordercolor, w, scheme[SchemeNorm][ColBorder].pixel));
 	if (c->ispermanent)
-		XSetWindowBorder(dpy, w, scheme[SchemePerm][ColBorder].pixel);
+		XSetWindowBorder(dpy, w, getcolormap(unkillbordercolor, w, scheme[SchemePerm][ColBorder].pixel));
 	configure(c); /* propagates border_width, if size doesn't change */
 	updatewindowtype(c);
 	updatesizehints(c);
@@ -1902,9 +1926,9 @@ unfocus(Client *c, int setfocus)
 	if (!c)
 		return;
 	grabbuttons(c, 0);
-	XSetWindowBorder(dpy, c->win, scheme[SchemeNorm][ColBorder].pixel);
+	XSetWindowBorder(dpy, c->win, getcolormap(normalbordercolor, c->win, scheme[SchemeNorm][ColBorder].pixel));
 	if (c->ispermanent)
-		XSetWindowBorder(dpy, c->win, scheme[SchemePerm][ColBg].pixel);
+		XSetWindowBorder(dpy, c->win, getcolormap(unkillbordercolor, c->win, scheme[SchemePerm][ColBg].pixel));
 	if (setfocus) {
 		XSetInputFocus(dpy, root, RevertToPointerRoot, CurrentTime);
 		XDeleteProperty(dpy, root, netatom[NetActiveWindow]);
@@ -2175,7 +2199,7 @@ updatewmhints(Client *c)
 		} else {
 			c->isurgent = (wmh->flags & XUrgencyHint) ? 1 : 0;
 			if (c->isurgent)
-				XSetWindowBorder(dpy, c->win, scheme[SchemeUrg][ColBorder].pixel);
+				XSetWindowBorder(dpy, c->win, getcolormap(urgentbordercolor, c->win, scheme[SchemeUrg][ColBorder].pixel));
 		}
 		if (wmh->flags & InputHint)
 			c->neverfocus = !wmh->input;
