@@ -1,12 +1,12 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx = 2;        /* border pixel of windows */
-static const unsigned int gappx    = 10;       /* gap between windows */
-static const unsigned int snap     = 32;       /* snap pixel */
+static const unsigned int borderpx  = 2;        /* border pixel of windows */
+static const unsigned int gappx     = 10;       /* gap between windows */
+static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int barheight = 12;      /* height of the bar */
-static const int showbar           = 1;        /* 0 means no bar */
-static const int topbar            = 1;        /* 0 means bottom bar */
+static const int showbar            = 1;        /* 0 means no bar */
+static const int topbar             = 1;        /* 0 means bottom bar */
 
 /* colors */
 static const char col_jellybean0[]  = "#181818";
