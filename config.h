@@ -30,6 +30,7 @@ static const char col_jellybean17[] = "#c1c1c1";
 static const char *colors[][3]      = {
 	/*               fg               bg              border          */
 	[SchemeNorm] = { col_jellybean2,  col_jellybean0, col_jellybean1  },
+	[SchemeSelTag] = { col_jellybean0,  col_jellybean17, col_jellybean1  },
 	[SchemeSel]  = { col_jellybean17, col_jellybean0, col_jellybean4  },
 	[SchemeUrg]  = { col_jellybean3,  col_jellybean4, col_jellybean11 },
 	[SchemePerm] = { col_jellybean3,  col_jellybean1, col_jellybean6  },
