@@ -79,6 +79,7 @@ and (re)compiling the source code.
 1. hide vacant tags
 1. unkillable windows
 1. urgent windows border color
+1. tag underline
 
 ---
 

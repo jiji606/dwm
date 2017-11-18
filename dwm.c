@@ -765,7 +765,7 @@ void
 drawbar(Monitor *m)
 {
 	int x, w, sw = 0;
-	int boxs = drw->fonts->h / 9;
+	int boxs = drw->fonts->h / 10;
 	int boxw = drw->fonts->h / 6 + 2;
 	unsigned int i, occ = 0, urg = 0;
 	Client *c;
@@ -790,6 +790,9 @@ drawbar(Monitor *m)
 		w = TEXTW(tags[i]);
 		drw_setscheme(drw, scheme[(m->tagset[m->seltags] & 1 << i) ? SchemeSelTag : (urg & 1 << i ? SchemeUrg : SchemeNorm)]);
 		drw_text(drw, x, 0, w, bh, lrpad / 2, tags[i], 0);
+		drw_setscheme(drw, scheme[SchemeUrg]);
+		if (m == selmon && selmon->sel && selmon->sel->tags & 1 << i)
+			drw_rect(drw, x + boxs - 1, drw->fonts->h + boxs + 4, boxw + TEXTW(tags[i]), 1, 1, 0);
 		x += w;
 	}
 	w = blw = TEXTW(m->ltsymbol);
