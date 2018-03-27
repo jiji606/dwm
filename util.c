@@ -6,20 +6,18 @@
 
 #include "util.h"
 
-void *
-ecalloc(size_t nmemb, size_t size)
-{
-	void *p;
+void * ecalloc(size_t nmemb, size_t size) {
+	void * p;
 
-	if (!(p = calloc(nmemb, size)))
+	if (!(p = calloc(nmemb, size))) {
 		die("calloc:");
+	}
+
 	return p;
 }
 
-void
-die(const char *fmt, ...) {
+void die(const char * fmt, ...) {
 	va_list ap;
-
 	va_start(ap, fmt);
 	vfprintf(stderr, fmt, ap);
 	va_end(ap);
