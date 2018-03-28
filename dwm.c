@@ -828,6 +828,8 @@ void drawbar(Monitor * m) {
 	int boxs = drw->fonts->h / 10;
 	int boxw = drw->fonts->h / 6 + 2;
 	unsigned int i, occ = 0, urg = 0;
+	unsigned int underline_x;
+	unsigned int underline_y;
 	Client * c;
 
 	/* draw status first so it can be overdrawn by tags later */
@@ -858,8 +860,11 @@ void drawbar(Monitor * m) {
 		drw_text(drw, x, 0, w, bh, lrpad / 2, tags[i], 0);
 		drw_setscheme(drw, scheme[SchemeUrg]);
 
+		/* draw underline under the tag */
 		if (m == selmon && selmon->sel && selmon->sel->tags & 1 << i) {
-			drw_rect(drw, x + boxs - 1, drw->fonts->h + boxs + 9, boxw + TEXTW(tags[i]), 1, 1, 0);
+			underline_x = x - 1;
+			underline_y = drw->fonts->h + (barheight - ulheight);
+			drw_rect(drw, underline_x, underline_y, TEXTW(tags[i]), ulheight, 1, 0);
 		}
 
 		x += w;
