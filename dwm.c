@@ -147,6 +147,13 @@ typedef struct {
 	int monitor;
 } Rule;
 
+typedef struct {
+	const char * command;
+	const char * color;
+	unsigned int refresh_interval;
+	int refresh;
+} Statusbar_module;
+
 /* function declarations */
 static void applyrules(Client * c);
 static int applysizehints(Client * c, int * x, int * y, int * w, int * h, int interact);
