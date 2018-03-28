@@ -192,6 +192,7 @@ static int gettextprop(Window w, Atom atom, char * text, unsigned int size);
 static void grabbuttons(Client * c, int focused);
 static void grabkeys(void);
 static void incnmaster(const Arg * arg);
+static void initialize_statusbar_module(Statusbar_module * mod);
 static void keypress(XEvent * e);
 static void keyrelease(XEvent * e);
 static void killclient(const Arg * arg);
